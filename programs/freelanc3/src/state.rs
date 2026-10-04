@@ -13,8 +13,7 @@ pub struct Profile{
 #[derive(InitSpace)]
 pub struct Job{
     pub poster : Pubkey, 
-    #[max_len(32)]
-    pub job_id : String,
+    pub job_id : u64,
     #[max_len(32)]
     pub title : String, 
     pub budget : u32,
