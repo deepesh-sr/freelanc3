@@ -28,9 +28,19 @@ pub fn apply_job(
     resume_ref : String 
 )-> Result<()>{
 
+    require!(
+        ctx.accounts.job.status == Status::Opened, 
+        ErrorCode::InvalidJob
+    );
+
+    require!(
+        !resume_ref.is_empty() && resume_ref.len() <= 64, 
+        ErrorCode::InvalidResumeRef
+    ); 
+
     let application = &mut ctx.accounts.application; 
 
-    application.authrity = ctx.accounts.applicant.key(); 
+    application.applicant = ctx.accounts.applicant.key(); 
     application.job = ctx.accounts.job.key(); 
     application.resume_ref = resume_ref; 
     application.status = crate::ApplicationtStatus::Applied; 

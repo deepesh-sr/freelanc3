@@ -18,6 +18,7 @@ pub struct Job{
     pub title : String, 
     pub budget : u32,
     pub status : Status, 
+    pub hired_applicant : Option<Pubkey>,
     pub bump : u8 
 }
 
@@ -33,7 +34,7 @@ pub enum Status {
 #[account]
 #[derive(InitSpace)]
 pub struct Application{
-    pub authrity : Pubkey, 
+    pub applicant: Pubkey, 
     pub job : Pubkey,
     #[max_len(64)]
     pub resume_ref : String,
