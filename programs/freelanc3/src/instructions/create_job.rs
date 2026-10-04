@@ -48,6 +48,7 @@ pub fn create_job(
     job.title = title; 
     job.status = crate::Status::Opened; 
     job.budget = budget; 
+    job.bump = ctx.bumps.job; 
 
     Ok(())
 }

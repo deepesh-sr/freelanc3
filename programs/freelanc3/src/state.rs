@@ -17,7 +17,8 @@ pub struct Job{
     #[max_len(32)]
     pub title : String, 
     pub budget : u32,
-    pub status : Status
+    pub status : Status, 
+    pub bump : u8 
 }
 
 
@@ -36,11 +37,13 @@ pub struct Application{
     pub job : Pubkey,
     #[max_len(64)]
     pub resume_ref : String,
-    pub status : ApplicationtStatus
+    pub status : ApplicationtStatus, 
+    pub bump : u8 
 }
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug, PartialEq,Eq, InitSpace)]
 pub enum ApplicationtStatus {
+Applied, 
 Accepted, 
 Rejected
 }
