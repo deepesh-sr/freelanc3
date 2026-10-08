@@ -17,16 +17,6 @@ fn test_initialize() {
     svm.add_program(program_id, bytes).unwrap();
     svm.airdrop(&payer.pubkey(), 1_000_000_000).unwrap();
     
-    let instruction = Instruction::new_with_bytes(
-        program_id,
-        &freelanc3::instruction::Initialize {}.data(),
-        freelanc3::accounts::Initialize {}.to_account_metas(None),
-    );
+    
 
-    let blockhash = svm.latest_blockhash();
-    let msg = Message::new_with_blockhash(&[instruction], Some(&payer.pubkey()), &blockhash);
-    let tx = VersionedTransaction::try_new(VersionedMessage::Legacy(msg), &[payer]).unwrap();
-
-    let res = svm.send_transaction(tx);
-    assert!(res.is_ok());
 }

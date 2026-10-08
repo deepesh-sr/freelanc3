@@ -1,0 +1,21 @@
+{
+    "idl": "/Users/deepeshsinghrathore/Rust/Dev3Pack/freelanc3/target/idl/freelanc3.json",
+    "before": [],
+    "scripts": {
+        "js": {
+            "from": "@codama/renderers-js",
+            "args": [
+                "clients/typescript"
+            ]
+        },
+        "rust": {
+            "from": "@codama/renderers-rust",
+            "args": [
+                "clients/rust",
+                {
+                    "formatCode": true
+                }
+            ]
+        }
+    }
+}
